@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "task-flaskrest"
+version = "0.1.0"
+description = ""
+authors = ["A-V-tor <avtorca4@gmail.com>"]
+readme = "README.md"
+packages = [{include = "task_flaskrest"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.3.2"
+flask-sqlalchemy = "^3.0.3"
+flask-apispec = "^0.11.4"
+flask-admin = "^1.6.1"
+requests = "^2.30.0"
+psycopg2-binary = "^2.9.6"
+flask-babelex = "^0.9.4"
+pytz = "^2023.3"
+pydub = "^0.25.1"
+python-dotenv = "^1.0.0"
+pytest = "^7.3.1"
+pytest-cov = "^4.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+blue = "^0.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
