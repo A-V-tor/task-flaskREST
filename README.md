@@ -42,7 +42,7 @@
 <h2>Скачать проект</h2>
 
 ```
-  git@github.com:A-V-tor/task-flaskREST.git
+  git clone git@github.com:A-V-tor/task-flaskREST.git
 ```
 
 ```
@@ -100,10 +100,10 @@
 ```
 **Маршруты**
 
-http://localhost:5000//quiz - получение вопросов викторины </br>
-http://localhost:5000//user - создание нового юзера </br>
-http://localhost:5000//music-add - добавление композиции </br>
-http://localhost:5000//record - скачивание композиции в mp3 формате </br>
+http://localhost:5000/quiz - получение вопросов викторины </br>
+http://localhost:5000/user - создание нового юзера </br>
+http://localhost:5000/music-add - добавление композиции </br>
+http://localhost:5000/record - скачивание композиции в mp3 формате </br>
 http://localhost:5000/swagger-ui - swagger документация </br></br>
 
 Доступ к моделям возможен через админку </br>
