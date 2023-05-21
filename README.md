@@ -37,5 +37,80 @@
 * В репозитории с заданием должны быть предоставлены инструкции по сборке докер-образа с сервисами из пп. 2. и 3., их настройке и запуску. А также пример запросов к методам сервиса.
 Желательно, если при выполнении задания вы будете использовать docker-compose, SQLAlchemy,  пользоваться аннотацией типов.
 
+<h1 align="center">Развертывание проекта</h1>
 
+<h2>Скачать проект</h2>
 
+```
+  git@github.com:A-V-tor/task-flaskREST.git
+```
+
+```
+  cd task-flaskREST
+```
+<h2> Создать виртуальное окружение и установить зависимости</h2>
+
+```
+    python -m venv venv
+    source venv/bin/activate
+    
+```
+`python -m pip install -r requirements.txt` </br> </br>
+#### Если вы используете poetry
+
+```
+    poetry shell
+    poetry install
+    
+```
+## ! Для работы второй части задания требуется установка ffmpeg
+Для Mac возможна установка через `brew`
+Это займет какое-то время (~ 10 минут)
+
+```
+    brew install ffmpeg
+    
+```
+
+Создать файд `.env` со следующими переменными:
+
+   
+        POSTGRES_USER
+        POSTGRES_PASSWORD
+        POSTGRES_DB
+        SECRET_KEY
+    
+
+Запустить postgresql в докер контейнере
+
+```
+   docker-compose up -d
+```
+Дождаться старта и настройки контейнера и запустить `Flask`
+
+```
+    flask --app wsgi run
+```
+
+Для остановки контейнера
+
+```
+    docker-compose stop
+```
+**Маршруты**
+
+http://localhost:5000//quiz - получение вопросов викторины </br>
+http://localhost:5000//user - создание нового юзера </br>
+http://localhost:5000//music-add - добавление композиции </br>
+http://localhost:5000//record - скачивание композиции в mp3 формате </br>
+http://localhost:5000/swagger-ui - swagger документация </br></br>
+
+Доступ к моделям возможен через админку </br>
+http://localhost:5000/admin
+
+## Тесты
+```
+   pytest --cov
+```
+
+<img src="https://github.com/A-V-tor/task-flaskREST/blob/main/tests.png">
