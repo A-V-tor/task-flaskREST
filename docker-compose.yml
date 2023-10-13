@@ -1,13 +1,31 @@
 version: '3'
 services:
+  app:
+    build: .
+    command: gunicorn -w 3 -b 0.0.0.0:5000 wsgi:app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    links:
+      - db
+    networks:
+      - mynet
   db:
     image: postgres
     restart: always
     volumes:
       - ./data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - PGDATA=/var/lib/postgresql/data/database/
     env_file:
       - .env
-    environment:
-      PGDATA: /var/lib/postgresql/data/database/
     ports:
-      - 5432:5432
+      - "5432:5432"
+    networks:
+      - mynet
+networks:
+    mynet:
