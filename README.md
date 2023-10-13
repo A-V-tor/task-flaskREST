@@ -48,21 +48,7 @@
 ```
   cd task-flaskREST
 ```
-<h2> Создать виртуальное окружение и установить зависимости</h2>
 
-```
-    python -m venv venv
-    source venv/bin/activate
-    
-```
-`python -m pip install -r requirements.txt` </br> </br>
-#### Если вы используете poetry
-
-```
-    poetry shell
-    poetry install
-    
-```
 ## ! Для работы второй части задания требуется установка ffmpeg <a href='https://ffmpeg.org/download.html'>скачать можно тут</a>
 
 Для Mac возможна установка через `brew`
@@ -73,13 +59,18 @@
     
 ```
 
+</hr>
+
+## Запуск проекта
+
 Создать файл `.env` со следующими переменными:
 
    
-        POSTGRES_USER
-        POSTGRES_PASSWORD
-        POSTGRES_DB
-        SECRET_KEY
+        POSTGRES_USER=admin
+        POSTGRES_PASSWORD=admin
+        POSTGRES_DB=database
+        DB_HOST=localhost
+        SECRET_KEY=1234556789
     
 
 Запустить postgresql в докер контейнере
